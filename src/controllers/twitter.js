@@ -10,7 +10,7 @@ class TwitterController {
         const business = new TwitterBusiness();
         const randomTweet = await business.sortRandomTweetFromHashtagAndDate(this.hashtag, this.date);
         if (randomTweet) {
-            return { user_account: randomTweet.user.screen_name, tweet: randomTweet.text, date: randomTweet };
+            return { user_account: randomTweet.user.screen_name, tweet: randomTweet.text, date: randomTweet.created_at };
         }
         else return `Nenhum tweet encontrado para a hashtag #${this.hashtag} na data ${this.date}`
     }
